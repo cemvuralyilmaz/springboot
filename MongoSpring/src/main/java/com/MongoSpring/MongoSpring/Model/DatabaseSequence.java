@@ -4,21 +4,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection = "database_sequences")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
-
-    @Transient
-    public static final String SEQUENCE_NAME = "student_sequence";
+public class DatabaseSequence {
 
     @Id
+    private String id;
 
-    private Long rno;
-    private String name;
-    private  Integer mark;
+    private long seq;
+
+    //getters and setters omitted
 }
